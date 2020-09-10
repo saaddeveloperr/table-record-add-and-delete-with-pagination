@@ -1,0 +1,255 @@
+
+
+    <section>
+    <div ng-controller="koruController">
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="pageContainer">
+                            <div class="contentHeader">
+                                <h1>Koru Demo</h1>
+                            </div>
+                            <div class="pageContent">
+                                <div class="open_accordian">
+                                    <div class="accordWrap">
+                                        <div class="stepsAccordContent">
+                                            <div class="accordContainer">
+                                                <div class="accordHeader" >
+                                                    <h2>
+                                                        RX Specific Alert
+                                                    </h2>
+                                                </div>
+                                                <div class="accordContent dataContent">
+                                                    <form name="form.Koru"  autocomplete="off">
+                                                        <div class="row">
+
+                                                            <div class="col-md-12 col-sm-12 col-xs-12">
+
+                                                                <div class="col-md-6 col-xs-12">
+                                                                    <div >
+                                                                        <div class="col-md-7 col-sm-7 col-xs-12">
+                                                                            <div class="form-group padsearch">
+
+                                                                                <input type="text" ng-model="search"
+                                                                                       placeholder="Search"/>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+
+
+                                                                    <div class="row">
+                                                                        <div class="tableGridStyle pad" >
+                                                                            <div class="tableGridBody pad">
+                                                                                <table cellspacing="0" cellpadding="0">
+                                                                                    <thead>
+                                                                                    <tr>
+                                                                                        <!--<th>
+                                                                                            <label class="checkBox">
+                                                                                                <input type="checkbox" ng-model="koru.checkAllseach"> <span></span>
+                                                                                            </label>
+                                                                                        </th>-->
+
+                                                                                        <th>
+                                                                                            <label class="checkBox">
+                                                                                                <input type="checkbox"  ng-model="koru.searchSelectedAll"
+                                                                                                       ng-click="searchSelectAll()" > <span></span>
+                                                                                            </label>
+                                                                                        </th>
+
+                                                                                        <th>Test</th>
+                                                                                        <th>Type</th>
+                                                                                        <th>Frequency</th>
+                                                                                        <th>Web reference</th>
+
+                                                                                    </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                    <tr  ng-repeat="row in aserachCustomer | filter:search  track by $index">
+                                                                                        <!--<td>
+                                                                                            <label class="checkBox">
+                                                                                                <input type="checkbox" ng-checked="koru.checkAllseach" ng-model="row[$index]"> <span></span>
+                                                                                            </label>
+                                                                                        </td>-->
+                                                                                        <td>
+                                                                                            <label class="checkBox">
+                                                                                                <input type="checkbox"  ng-model="row.searchSelected" ng-click="searchCheckIfAllSelected(row.searchSelected)"> <span></span>
+                                                                                            </label>
+                                                                                        </td>
+
+                                                                                        <td>{{row.test}}</td>
+                                                                                        <td>{{row.type}}</td>
+                                                                                        <td>{{row.frequency}}</td>
+                                                                                        <td>{{row.webrefere}}</td>
+
+                                                                                    </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                </div>
+
+                                                                <div class="col-md-6 col-xs-12">
+                                                                    <div ng-if="addParamlink">
+                                                                        <a class="btns-icon icon-add marginBtm15"
+                                                                           href="javascript:;" ng-click="addNewParameter();">
+                                                                            <span>Add Another Parameter</span>
+                                                                        </a>
+
+                                                                    </div>
+
+                                                                    <div ng-if="addparameter">
+                                                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                            <div class="form-group">
+                                                                                <label> Name  <sup>*</sup></label>
+                                                                                <input type="text" ng-model="koru.name" name="name"
+                                                                                       placeholder="Enter Name" required>
+                                                                                <span class="oaterrormsg" ng-show="form.Koru.name.$touched && form.Koru.name.$error.required" >Please Enter Name</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                            <div class="form-group">
+                                                                                <label>Description <sup>*</sup>
+                                                                                </label>
+                                                                                <input type="text" ng-model="koru.description" name="description"
+                                                                                       placeholder="Description" required>
+                                                                                <span class="oaterrormsg" ng-show="form.Koru.description.$touched && form.Koru.description.$error.required" >Please Enter Description</span>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                            <div class="form-group">
+                                                                                <label>Order Set <sup>*</sup>
+                                                                                </label>
+                                                                                <input type="text" ng-model="koru.orderset" name="orderset"
+                                                                                       placeholder="Order Set" required="">
+                                                                                <span class="oaterrormsg" ng-show="form.Koru.orderset.$touched && form.Koru.orderset.$error.required" >Please Enter Order Set</span>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                            <div class="form-group" style="padding-top: 13px;">
+                                                                                <button   class="btns btn-primary"           ng-if="!isEditAuthRule" ng-disabled="!koru.name||!koru.description||!koru.orderset"  ng-click="addCustomer(koru)">add </button>
+                                                                                <button   class="btns  pull-left btn-authorize" ng-if="isEditAuthRule"   ng-click="updateCustomer(koru)">Update</button>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div ng-if="collapseparam">
+                                                                        <a class="btns-icon icon-minus marginBtm15"
+                                                                           href="javascript:;" ng-click="hideParam();">
+                                                                            <span>collapse</span>
+                                                                        </a>
+
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="tableGridStyle">
+                                                                            <div class="tableGridBody">
+                                                                                <table cellspacing="0" cellpadding="0">
+                                                                                    <thead>
+                                                                                    <tr>
+                                                                                        <th>
+                                                                                            <label class="checkBox">
+                                                                                                <input type="checkbox"  ng-model="selectedAll"
+                                                                                                       ng-click="selectAll()" > <span></span>
+                                                                                            </label>
+                                                                                        </th>
+                                                                                        <th>Name</th>
+                                                                                        <th>Description</th>
+                                                                                        <th>Web reference</th>
+                                                                                        <th>Links</th>
+                                                                                    </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                    <tr  ng-repeat="row in customers track by $index">
+                                                                                        <td>
+                                                                                            <label class="checkBox">
+                                                                                                <input type="checkbox"  ng-model="row.Selected" ng-click="checkIfAllSelected()"> <span></span>
+                                                                                            </label>
+                                                                                        </td>
+
+                                                                                        <td>{{row.name}}</td>
+                                                                                        <td>{{row.description}}</td>
+                                                                                        <td>{{row.orderset}}</td>
+
+
+                                                                                        <td> <a style="padding-right: 1px!important;" href="javascript:;" title="Edit"  class="icon-edit" ng-click="editCustomer($index, row);"></a>
+<!--                                                                                            <a style="padding-left: 1px!important;" href="javascript:;"class="icon-delete"title="Delete" ng-click="deleteCustomer($index,row);"></a>-->
+                                                                                            <a style="padding-left: 1px!important;" href="javascript:;"class="icon-delete"title="Delete" data-toggle="modal" data-target="#deleteModal"></a>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <ul uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="itemsPerPage" ng-change="koru.searchSelectedAll=currentPage"></ul>
+                                                        <div class="row">
+
+                                                            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="deleteModalLabel">Delete</h5>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            Are You Sure You Want To Delete
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                            <button type="button" class="btn btn-primary" ng-click="deleteCustomer($index,row);" data-dismiss="modal">Delete</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal fade" id="successubmit" tabindex="-1" role="dialog" aria-labelledby="successubmitLabel" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="successubmitLabel">Submit</h5>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            Record has been added Successfully
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <a href="#/index.html" class="btns btns-nocolor right">Cancel</a>
+
+                                            <button ng-disabled="!validateForm()" class="btns btn-primary right" data-toggle="modal" data-target="#successubmit" >Submit</button>
+<p>*<strong>after adding the record due to form validation add button is disable you have to cllopse it to enable the button</strong> </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

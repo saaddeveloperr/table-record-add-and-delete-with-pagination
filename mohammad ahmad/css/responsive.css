@@ -1,0 +1,67 @@
+.show_mobile{display:none;}
+
+@media only screen and (max-width: 1024px)
+{
+    .varificationModeLytbox{
+        top:0px;
+    }
+    .icon-showVirtualKeyboard {
+        display: none;
+    }
+    .hideInMobile{
+        display: none;
+    }
+    .dpForMobile
+    {
+        height: 98%;
+	    width: auto;
+	    top: 1px;
+	    position: relative;
+    }
+    
+    .blurImg 
+    {
+	    top: 0;
+	    left: 0px;
+	    position: absolute;
+	    right: 0px;
+	    bottom: 0;
+	    width: 100%;
+	    height: 100%;
+	}
+    
+    .dashboard .alertnotification.box-content{position:relative;float:left;}
+    .desktop .postLogin.fixedHeader .secondaryMenu .menu, .desktop .postLogin.fixedHeader .secondaryMenu .search, .desktop .postLogin.fixedHeader .secondaryMenu .home, .desktop .postLogin.fixedHeader .secondaryMenu .quickLinks, .desktop .postLogin.fixedHeader .secondaryMenu .searchContainer, .desktop .postLogin.fixedHeader .secondaryMenu .profileContainer, .desktop .postLogin.fixedHeader .secondaryMenu .mail, .desktop .postLogin.fixedHeader .secondaryMenu .notification, .desktop .postLogin.fixedHeader .secondaryMenu .profileContainer .profileName{padding:5px 10px;}
+    .desktop .postLogin.fixedHeader .secondaryMenu{height:50px;}
+    #top_menu{margin-top:15px;}
+    .secondaryMenu .secondaryNavRightSection{width:60%;}
+    .secondaryNavLeftSection{width:auto !important;}
+    .dropdown-menu.extended.inbox{left:-160px;}
+    .dropdown-menu.extended.inbox .notify-arrow{right:25px;left:auto;}
+    .menuTabs .secondlevelMenuContainer .secondlevelMenu .fourthLevelLinks{height:inherit;display:none;}
+    .rightbar{width:auto;}
+    .megamenu-row{width:100%;}
+    .megamenu-row > div{padding:15px;}
+    .secondlevelMenu.active .thirdlevelMenu{display:block;}
+    .menuHeadLinks.active .secondlevelMenuContainer{display:block;}
+	.hide_mobile{display:none;}
+	.show_mobile{display:block;}
+	#SearchMain .btn{width:100%; margin:5px;}    
+	.accordWrap .accordContainer .accordHeader h2{width:100%;}
+	.searchOuterContainer .col-md-3, .searchOuterContainer .col-md-4, .searchOuterContainer .col-md-5{clear:both;}
+	.device .varificationMode ul li{padding:0 10px;}
+	.tableGridBody td .actionIcons a:first-child{margin-left:11px;}
+	.tableGridBody td .moreDetails{top:114px;}
+	.btnsCenterGroup a{float:none;}
+	.tableGridStyle .tableGridBody table{width:auto;}
+	.dataText:first-child{padding:6px 15px}
+	.getAction .dataText{border:1px solid #bbb;margin:2px;height: 55px;}
+	.dataText .view_eye{margin-right:15px !important;margin-top:-6px !important;}
+	.generalLinks p{left:-25px;position:relative;font-size:2.0rem;}
+	.dashboard .box-content{position:relative;min-height:170px;margin:0;}
+	.table-responsive>.table>tbody>tr>td, .table-responsive>.table>tbody>tr>th, .table-responsive>.table>tfoot>tr>td, .table-responsive>.table>tfoot>tr>th, .table-responsive>.table>thead>tr>td, .table-responsive>.table>thead>tr>th{white-space:normal;}
+    .menuTabs .thirdlevelLinksSection .thirdLevelLinks .active {
+        /*background: #e1e1e1;*/
+        height: 54px;
+    }
+}
